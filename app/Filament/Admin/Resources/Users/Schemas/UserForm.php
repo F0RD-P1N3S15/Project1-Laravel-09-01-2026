@@ -15,14 +15,18 @@ class UserForm
             ->components([
                 TextInput::make('name')
                     ->required(),
+
                 TextInput::make('email')
                     ->label('Email address')
                     ->email()
                     ->required(),
+
                 DateTimePicker::make('email_verified_at'),
+
                 TextInput::make('password')
                     ->password()
                     ->required(),
+                    
                 Toggle::make('is_admin')
                     ->required(),
             ]);
