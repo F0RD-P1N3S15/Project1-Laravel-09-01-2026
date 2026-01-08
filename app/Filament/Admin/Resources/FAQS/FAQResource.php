@@ -7,7 +7,7 @@ use App\Filament\Admin\Resources\FAQS\Pages\EditFAQ;
 use App\Filament\Admin\Resources\FAQS\Pages\ListFAQS;
 use App\Filament\Admin\Resources\FAQS\Schemas\FAQForm;
 use App\Filament\Admin\Resources\FAQS\Tables\FAQSTable;
-use App\Models\faq;
+use App\Models\FAQ;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -16,7 +16,7 @@ use Filament\Tables\Table;
 
 class FAQResource extends Resource
 {
-    protected static ?string $model = faq::class;
+    protected static ?string $model = FAQ::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

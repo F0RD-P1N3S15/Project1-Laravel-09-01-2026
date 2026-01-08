@@ -15,13 +15,14 @@ class FAQForm
             ->components([
                 TextInput::make('title')
                     ->required(),
+                    
                 RichEditor::make('content')
                     ->required()
                     ->columnSpanFull(),
 
                 Select::make('faq_category_id')
                     ->label('Category')
-                    ->relationship('category', 'title') 
+                    ->relationship('category', 'title')
                     ->required(),   
             ]);
     }
