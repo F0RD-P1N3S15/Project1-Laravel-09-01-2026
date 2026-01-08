@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources\FAQS\Schemas;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Select;
 
 class FAQForm
 {
@@ -14,10 +15,14 @@ class FAQForm
             ->components([
                 TextInput::make('title')
                     ->required(),
-
-                RichEditor::make('content') /* RichEditor => Gives extra edit options in the content section */
+                RichEditor::make('content')
                     ->required()
                     ->columnSpanFull(),
+
+                Select::make('faq_category_id')
+                    ->label('Category')
+                    ->relationship('category', 'title') 
+                    ->required(),   
             ]);
     }
 }
