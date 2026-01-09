@@ -23,4 +23,10 @@ Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
+});
+
+
 require __DIR__.'/auth.php';
