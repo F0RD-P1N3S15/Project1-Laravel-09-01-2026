@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\UserSearchController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,6 +26,8 @@ Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 
 Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
+Route::get('/users/search', [UserSearchController::class, 'index'])->name('users.search');
+Route::get('/users/{user}', [UserSearchController::class, 'show'])->name('users.show');
 
 Route::get('/contact', [FormsController::class, 'index'])->name('forms.index');
 Route::post('/contact', [FormsController::class, 'store'])->name('forms.store');

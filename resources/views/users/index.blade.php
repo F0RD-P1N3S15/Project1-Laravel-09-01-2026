@@ -64,15 +64,23 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
-                    @foreach($users as $user)
-                    <div class="character-section">
-                        <div class="character-row user">
-                            <img src="{{ $user->profile_picture }}" alt="profile_picture"> <!-- Profile Picture -->
-                            <h1>{{ $user->name }}</h1>          <!-- Name -->
-                            <p>{!! $user->description !!}</p>   <!-- Description -->
-                        </div>
-                    </div>
-                    @endforeach
+                    <form method="get" action="{{ route('users.search') }}" class="flex gap-2 mb-4">
+                        <input type="text" name="query" placeholder="Search username..." value="{{ $query ?? '' }}"
+                            class="border rounded p-2 flex-grow">
+                        <button type="submit" class="py-2 rounded">Search</button>
+                    </form>
+
+                    @if($users->isEmpty() && $query)
+                        <p>No users found for "{{ $query }}"</p>
+                    @endif
+
+                    <ul class="space-y-2">
+                        @foreach($users as $user)
+                            <li class="border p-2 rounded hover:bg-gray-50 mt-1">
+                                <a href="{{ route('users.show', $user) }}" class="font-medium text-blue-600">{{ $user->name }}</a>
+                            </li>
+                        @endforeach
+                    </ul>
 
                 </div>
             </div>
