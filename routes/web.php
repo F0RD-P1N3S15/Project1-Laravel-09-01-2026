@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\FormsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +23,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+
+Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
+
+Route::get('/contact', [FormsController::class, 'index'])->name('forms.index');
+Route::post('/contact', [FormsController::class, 'store'])->name('forms.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

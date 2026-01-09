@@ -9,9 +9,18 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
+
+    public function index()
+    {
+            $users = User::orderBy('created_at', 'desc')->get();
+
+            return view('users.index', compact('users'));
+    }
+
     /**
      * Display the user's profile form.
      */
@@ -28,21 +37,26 @@ class ProfileController extends Controller
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $user = $request->user();
-        $request->user()->fill($request->validated());
 
         $data = $request->validate([
             'name' => 'required|string',
             'birthday' => 'nullable|date',
             'description' => 'nullable|string',
-            'profile_picture' => 'nullable', 
+            'profile_picture' => 'nullable|image|max:2048', 
         ]);
 
         if ($request->hasFile('profile_picture')) {
-            if ($user->profile_picture) {
-                Storage::delete($user->profile_picture);
+            if ($user->profile_picture) 
+            {
+                Storage::disk('public')->delete($user->profile_picture);
             }
+
             $data['profile_picture'] = $request->file('profile_picture')->store('profile_pictures', 'public');
+        } else {
+            unset($data['profile_picture']);
         }
+
+        $user->update($data);
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
@@ -73,4 +87,5 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
 }

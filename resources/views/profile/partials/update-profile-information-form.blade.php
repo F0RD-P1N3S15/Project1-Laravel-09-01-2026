@@ -1,3 +1,14 @@
+<style>
+    .profile-textarea
+    {
+        border: lightgray 1px solid;
+        padding: 10px;
+        height: 100px;
+        width: 100%;    
+        
+    }
+</style>
+
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
@@ -13,16 +24,44 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
+        <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
+        </div>
 
-            <!-- where the rest of the info goes -->
+        <!-- Birthday -->
+        <div>
+            <x-input-label for="birthday" :value="__('Birthday')" />
+            <x-text-input id="birthday" name="birthday" type="date" class="mt-1 block w-full" :value="old('birthday', $user->birthday?->format('Y-m-d'))" autofocus autocomplete="birthday" />
+            <x-input-error class="mt-2" :messages="$errors->get('birthday')" />
+        </div>
+
+        <!-- Description / About Me -->
+        <div>
+            <x-input-label for="description" :value="__('About Me')" />
+            <textarea
+                id="description"
+                name="description"
+                class="profile-textarea"
+            >{{ old('description', $user->description) }}</textarea>
+            <x-input-error class="mt-2" :messages="$errors->get('description')" />
+        </div>
+
+        <!-- Profile picture -->
+        <div>
+            <x-input-label for="profile_picture" :value="__('Profile Picture')" />
+            <input id="profile_picture" name="profile_picture" type="file" accept="image/*" class="profile-textarea" autocomplete="profile_picture" />
+            <x-input-error class="mt-2" :messages="$errors->get('profile_picture')" />
+            <!-- Preview (JS code below) -->
+             @if($user->profile_picture)
+            <img src="{{ asset('storage/' . $user->profile_picture) }}" id="preview" alt="preview" style="max-width:200px; max-height:200px; margin-top:5px;" />
+            @endif
         </div>
 
         <div>
@@ -64,3 +103,24 @@
         </div>
     </form>
 </section>
+
+<!-- To have a profile_picture preview -->
+<script>
+  const input = document.getElementById("profile_picture");
+  const preview = document.getElementById("preview");
+
+  input.addEventListener("change", function () {
+    const file = this.files[0];
+
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image");
+      this.value = "";
+      return;
+    }
+
+    preview.src = URL.createObjectURL(file);
+    preview.style.display = "block";
+  });
+</script>
