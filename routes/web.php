@@ -32,10 +32,4 @@ Route::get('/users/{user}', [UserSearchController::class, 'show'])->name('users.
 Route::get('/contact', [FormsController::class, 'index'])->name('forms.index');
 Route::post('/contact', [FormsController::class, 'store'])->name('forms.store');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
-});
-
-
 require __DIR__.'/auth.php';
