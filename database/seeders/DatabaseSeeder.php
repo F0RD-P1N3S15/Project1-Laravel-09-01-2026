@@ -36,5 +36,7 @@ class DatabaseSeeder extends Seeder
             'password' => 'Password!321',
             'is_admin' => 0
         ]);
+
+        // Also create a starting point for other stuff like categories, news, etc. (???)
     }
 }

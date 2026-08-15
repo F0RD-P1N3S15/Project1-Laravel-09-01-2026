@@ -9,21 +9,24 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
+
                     @if($user->profile_picture)
                         <img src="{{ asset('storage/' . $user->profile_picture) }}" class="w-32 h-32 rounded-full mx-auto" hei>
                     @endif
 
                     <div class="mx-auto">
-                        <p><strong>Username:</strong> {{ $user->name }}</p>
+                        <p><strong>Usernames:</strong> {{ $user->name }}</p>
                         <p><strong>Email:</strong> {{ $user->email }}</p>
                         
                         @if($user->birthday)
                             <p><strong>Birthday:</strong> {{ $user->birthday->format('d-m-Y') }}</p>
                         @endif
-                        @endauth
-                        @if($user->about_me)
-                            <p><strong>About me:</strong> {{ $user->about_me }}</p>
+
+                        @if($user->description)
+                            <p><strong>About me:</strong> {{ $user->description }}</p>
                         @endif
+
+                        
                     </div>
                 </div>
             </div>
