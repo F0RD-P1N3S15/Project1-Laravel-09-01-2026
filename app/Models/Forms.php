@@ -10,6 +10,6 @@ class Forms extends Model
         'title',
         'email',
         'content',
-        'seen',
+        'admin_answer'
     ];
 }

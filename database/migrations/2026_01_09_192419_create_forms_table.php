@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('email');
-            $table->boolean('seen')->default(false);
+            $table->text('admin_answer')->nullable(); 
             $table->timestamps();
         });
     }

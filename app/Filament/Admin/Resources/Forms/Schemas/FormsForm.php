@@ -24,6 +24,8 @@ class FormsForm
                 RichEditor::make('content') /* RichEditor => Gives extra edit options in the content section */
                     ->required()
                     ->columnSpanFull(),
+
+                TextInput::make('admin_answer')
             ]);
     }
 }

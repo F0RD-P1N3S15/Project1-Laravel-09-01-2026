@@ -20,6 +20,7 @@ class FormsController extends Controller
         'title' => 'required|string',
         'content' => 'required|string',
         'email' => 'required|email',
+        'admin_answer' => 'string',
     ]);
 
     Forms::create($data);

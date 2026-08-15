@@ -21,6 +21,8 @@ class FormsTable
                 TextColumn::make('email')
                     ->label('Email address')
                     ->searchable(),
+                TextColumn::make('admin_answer')
+                    ->searchable(),
             ])
             ->filters([
                 //

@@ -39,7 +39,7 @@ class FormsResource extends Resource
 
     public static function canEdit($record = null): bool
     {
-        return false; // Admin is not allowed to edit these
+        return true; // Admin can edit this to answer the question
     }
 
 

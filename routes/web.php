@@ -3,8 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FaqSearchController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FormsController;
+use App\Http\Controllers\NewsSearchController;
 use App\Http\Controllers\UserSearchController;
 
 Route::get('/', function () {
@@ -22,8 +24,12 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
+Route::get('/faq/search', [FaqSearchController::class, 'index'])->name('faqs.search');
+Route::get('/faq/{faq}', [FaqSearchController::class, 'show'])->name('faqs.show');
 
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news/search', [NewsSearchController::class, 'index'])->name('news.search');
+Route::get('/news/{news}', [NewsSearchController::class, 'show'])->name('news.show');
 
 Route::get('/users', [ProfileController::class, 'index'])->name('users.index');
 Route::get('/users/search', [UserSearchController::class, 'index'])->name('users.search');
