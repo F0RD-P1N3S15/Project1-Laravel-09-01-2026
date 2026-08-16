@@ -9,6 +9,8 @@ class NewsSearchController extends Controller
 {
     public function index(Request $request)
     {
+        
+        $query = ''; // To stop this error from happening: ErrorException   resources\views\news\index.blade.php:29     Undefined variable $query
         $query = $request->input('query');
 
         $news = collect();

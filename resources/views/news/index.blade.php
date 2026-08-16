@@ -21,13 +21,14 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
                     <form method="get" action="{{ route('news.search') }}" class="flex gap-2 mb-4">
-                        <input type="text" name="query" placeholder="Search news..." value="{{ $query ?? '' }}"
-                            class="border rounded p-2 flex-grow">
+                        <input type="text" name="query" placeholder="Search news..." 
+                               value="{{ request('query', '') }}"
+                               class="border rounded p-2 flex-grow">
                         <button type="submit" class="py-2 rounded">Search</button>
                     </form>
 
-                    @if($news->isEmpty() && $query)
-                        <p>No news found for "{{ $query }}"</p>
+                    @if($news->isEmpty() && request('query', ''))
+                        <p>No news found for "{{ request('query', '') }}"</p>
                     @endif
 
                     <ul class="space-y-2">

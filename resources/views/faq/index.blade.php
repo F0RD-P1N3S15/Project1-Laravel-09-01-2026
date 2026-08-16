@@ -18,13 +18,14 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
                     <form method="get" action="{{ route('faqs.search') }}" class="flex gap-2 mb-4">
-                        <input type="text" name="query" placeholder="Search faq..." value="{{ $query ?? '' }}"
-                            class="border rounded p-2 flex-grow">
+                        <input type="text" name="query" placeholder="Search faq..." 
+                               value="{{ request('query', '') }}"  
+                               class="border rounded p-2 flex-grow">
+                               <!-- https://laravel.com/docs/13.x/requests#main-content -->
                         <button type="submit" class="py-2 rounded">Search</button>
                     </form>
-
-                    @if($faqs->isEmpty() && $query)
-                        <p>No faq found for "{{ $query }}"</p>
+                    @if($faqs->isEmpty() && request('query', ''))
+                        <p>No faq found for "{{ request('query', '') }}"</p>
                     @endif
 
                     <ul class="space-y-2">
