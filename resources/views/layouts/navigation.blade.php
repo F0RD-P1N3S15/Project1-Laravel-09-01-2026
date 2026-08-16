@@ -45,7 +45,7 @@
             </div>
 
             <!-- Settings Dropdown -->
-
+            @if(auth()->check())
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     @auth
@@ -66,7 +66,7 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-
+                        
                         @if(auth()->user()->is_admin)
                         <x-dropdown-link href="/admin">
                             {{ __('Admin panel') }}
@@ -86,6 +86,7 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+            @endif
 
             
             <div class="-me-2 flex items-center sm:hidden">
@@ -110,8 +111,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ auth()->check() && Auth::user()->name }}</div>
+                <div class="font-medium text-sm text-gray-500">{{ auth()->check() && Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">

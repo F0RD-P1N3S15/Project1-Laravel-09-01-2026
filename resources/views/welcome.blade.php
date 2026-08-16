@@ -23,6 +23,29 @@
         <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
+
+                    <!-- What the guest visit without a login -->
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link :href="route('faq.index')">
+                                {{ __('FAQ') }}
+                            </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link :href="route('news.index')">
+                                {{ __('News') }}
+                            </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link :href="route('users.index')">
+                                {{ __('Users') }}
+                            </x-nav-link>
+                    </div>
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link :href="route('forms.index')">
+                                {{ __('Contact') }}
+                            </x-nav-link>
+                    </div>
+
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"

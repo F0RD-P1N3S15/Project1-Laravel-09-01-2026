@@ -57,7 +57,7 @@
                     
                     <ul class="space-y-2">
                         @foreach($forms as $form)
-                        @if($form->email == Auth::user()->email)
+                        @if(auth()->check() && $form->email == Auth::user()->email)
                             <li class="border p-2 rounded hover:bg-gray-50 mt-1">
                                     <div class="news-display">
                                         <div><strong>{{ $form->title }}</strong> </div> <!-- Title -->
