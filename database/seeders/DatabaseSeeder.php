@@ -44,48 +44,49 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //Categories x2
-        $c1 = Categories::factory()->create([
+        $c1 = Categories::create([   // https://laravel.com/docs/13.x/eloquent#mass-assignment
             'title' => 'category1'
         ]);
-        $c2 = Categories::factory()->create([
+        $c2 = Categories::create([
             'title' => 'category2'
         ]);
 
         // FAQs x2
-        FAQ::factory()->create([
+        FAQ::create([
             'title' => 'Question1',
             'content' => 'Answer, and information.',
             'faq_category_id' => $c1->id
         ]);
-        FAQ::factory()->create([
+        FAQ::create([
             'title' => 'Question2',
             'content' => 'Answer, and information.',
             'faq_category_id' => $c2->id
         ]);
 
         // Forms x3
-        Forms::factory()->create([
+        Forms::create([
             'title' => 'Special Request',
             'email' => 'user1@ehb.be',
             'content' => 'information...',
             'admin_answer' => 'The admin answer'
         ]);
-        Forms::factory()->create([
+        Forms::create([
             'title' => 'Special Question',
             'email' => 'user2@ehb.be',
             'content' => 'information...',
             'admin_answer' => 'The admin answer'
         ]);
-        Forms::factory()->create([
+        Forms::create([
             'title' => 'Special Statement',
             'email' => 'user1@ehb.be',
             'content' => 'information...'
         ]);
 
         // News x1
-        News::factory()->create([
+        News::create([
             'title' => '(most-likely) Fake News!',
             'content' => 'The amazing and shocking information...',
+            'image' => ''
         ]);
     }
 }
