@@ -29,7 +29,7 @@ npm install
 
 **4. .env-file**
 ```
-cp .env.example .env (Als het nodig is (maakt een .env-file gebaseerd op .env.example))
+cp .env.example .env 
 php artisan key:generate
 ```
 
@@ -48,64 +48,100 @@ php artisan serve
 ## De database seeder maakt automatisch deze informatie aan
 
 **1. Admin account**
+
 *Naam:* Admin
+
 *Email:* admin@ehb.be
+
 *Passwoord:* Password!321
+
 
 **2. User account**
+
 *Naam:* User1
+
 *Email:* user1@ehb.be
+
 *Passwoord:* Password!321
----
+
+*---*
+
 *Naam:* User2
+
 *Email:* user2@ehb.be
+
 *Passwoord:* Password!321
+
 
 **3. FAQs**
+
 *Titel:* Question1
+
 *Info:* Answer, and information.
+
 *Categorie:* category1
----
+
+*---*
+
 *Titel:* Question2
+
 *Info:* Answer, and information.
+
 *Categorie:* category2
 
+
 **4. Categories**
+
 *Titel:* category1
----
+
+*---*
+
 *Titel:* category2
 
+
 **5. Contact forms**
+
 *Titel:* Special Request
+
 *Email:* user1@ehb.be
+
 *Info:* information...
+
 *Als de admin dit beantwoordt heeft:* The admin answer
----
+
+*---*
+
 *Titel:* Special Question
+
 *Email:* user2@ehb.be
+
 *Info:* information...
+
 *Als de admin dit beantwoordt heeft:* The admin answer
----
+
+*---*
+
 *Titel:* Special Statement
+
 *Email:* user1@ehb.be
+
 *Info:* information...
+
 *Als de admin dit beantwoordt heeft:* (geen)
 
+
 **6. News**
+
 *Titel:* (most-likely) Fake News!
+
 *Info:* The amazing and shocking information...
+
 *Img:* (geen)
+
 
 
 ## Extra features
 Naast de minimumvereiste functionaliteiten, zijn er nog een paar extras.
-
-•	Admins zien een overzicht van alle ingevulde contactformulieren in een admin-panel en kunnen via dit panel antwoorden op de berichten
-•	Sorting FAQ questions(no)
-•	FAQ search bar and individual display
-•	News search bar and individual display
-•	Contact page displays contact msg depending on the user (so the answer is visible) (create an empty answer box that the admin can fill in inside the panel)
-
 
 **1.** Admins zien een overzicht van alle ingevulde contactformulieren in een admin-panel en kunnen via dit panel antwoorden op de berichten
 
