@@ -12,13 +12,19 @@
 /.vscode
 /.zed
 /auth.json
+
+# Requested
 /node_modules
+
 /public/build
 /public/hot
 /public/storage
 /storage/*.key
 /storage/pail
+
+# Requested
 /vendor
+
 Homestead.json
 Homestead.yaml
 Thumbs.db

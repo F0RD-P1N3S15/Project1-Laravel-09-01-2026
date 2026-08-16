@@ -7,6 +7,146 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+# Project Laravel
+Dit is mijn schoolproject voor Backend Web.
+
+## Installatie
+
+**1. Clone de repository**
+```
+git clone https://github.com/F0RD-P1N3S15/Project1-Laravel-09-01-2026.git
+```
+
+**2. Installeer Composer**
+```
+composer install
+```
+
+**3. Installeer NPM**
+```
+npm install
+```
+
+**4. .env-file**
+```
+cp .env.example .env (Als het nodig is (maakt een .env-file gebaseerd op .env.example))
+php artisan key:generate
+```
+
+**5. Database migration & seeding**
+```
+php artisan migrate:fresh --seed
+```
+
+**6. Start the app**
+```
+npm run build
+php artisan serve
+```
+*-> http://127.0.0.1:8000*
+
+## De database seeder maakt automatisch deze informatie aan
+
+**1. Admin account**
+*Naam:* Admin
+*Email:* admin@ehb.be
+*Passwoord:* Password!321
+
+**2. User account**
+*Naam:* User1
+*Email:* user1@ehb.be
+*Passwoord:* Password!321
+---
+*Naam:* User2
+*Email:* user2@ehb.be
+*Passwoord:* Password!321
+
+**3. FAQs**
+*Titel:* Question1
+*Info:* Answer, and information.
+*Categorie:* category1
+---
+*Titel:* Question2
+*Info:* Answer, and information.
+*Categorie:* category2
+
+**4. Categories**
+*Titel:* category1
+---
+*Titel:* category2
+
+**5. Contact forms**
+*Titel:* Special Request
+*Email:* user1@ehb.be
+*Info:* information...
+*Als de admin dit beantwoordt heeft:* The admin answer
+---
+*Titel:* Special Question
+*Email:* user2@ehb.be
+*Info:* information...
+*Als de admin dit beantwoordt heeft:* The admin answer
+---
+*Titel:* Special Statement
+*Email:* user1@ehb.be
+*Info:* information...
+*Als de admin dit beantwoordt heeft:* (geen)
+
+**6. News**
+*Titel:* (most-likely) Fake News!
+*Info:* The amazing and shocking information...
+*Img:* (geen)
+
+
+## Extra features
+Naast de minimumvereiste functionaliteiten, zijn er nog een paar extras.
+
+•	Admins zien een overzicht van alle ingevulde contactformulieren in een admin-panel en kunnen via dit panel antwoorden op de berichten
+•	Sorting FAQ questions(no)
+•	FAQ search bar and individual display
+•	News search bar and individual display
+•	Contact page displays contact msg depending on the user (so the answer is visible) (create an empty answer box that the admin can fill in inside the panel)
+
+
+**1.** Admins zien een overzicht van alle ingevulde contactformulieren in een admin-panel en kunnen via dit panel antwoorden op de berichten
+
+**2.** Zoekbalk for users
+
+**3.** Zoekbalk for faqs (heeft ook individuele pagina als u op een faq klikt)
+
+**4.** Zoekbalk for news (heeft ook individuele pagina als u op een nieuwtje klikt)
+
+**5.** De contact pagina toont de ingestuurde forms afhankelijk van de mail van de ingelogde user (een user kan alleen hun forms zien). Daarbij staat ook het antwoord van de admin als die ingevuld is. Een guest gaat hun forms niet kunnen zien tenzij die een account met de gegeven mail maakt.
+
+## Bronvermelding (niet in volgorde van gebruik)
+
+**1.** Ik kreeg ondersteuning van een medestudent genaamd Liam Stammeleer.
+
+**2.** De laravel docs.
+
+**3.** https://laravel.com/docs/13.x/controllers
+
+**4.** File URLs: https://laravel.com/docs/13.x/filesystem#main-content
+
+**5.** https://www.youtube.com/watch?v=cDEVWbz2PpQ
+
+**6.** https://laravel.com/docs/10.x/starter-kits
+
+**7.** https://filamentphp.com/docs/4.x/introduction/installation
+
+**8.** https://www.w3schools.com/html/html_form_input_types.asp
+
+**9.** https://www.w3schools.com/cssref/css3_pr_justify-content.php
+
+**10.** https://www.w3schools.com/php/php_operators.asp
+
+**11.** https://laravel.com/docs/13.x/requests#main-content
+
+**12.** https://laravel.com/docs/13.x/eloquent#mass-assignment
+
+**13.** https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+**----------------------------------------------------------------------**
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
