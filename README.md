@@ -43,7 +43,6 @@ php artisan migrate:fresh --seed
 npm run build
 php artisan serve
 ```
-*-> http://127.0.0.1:8000*
 
 ## De database seeder maakt automatisch deze informatie aan
 
